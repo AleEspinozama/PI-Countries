@@ -9,14 +9,14 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     dificulty: {
-        type: DataTypes.TINYINT,
+        type: DataTypes.INTEGER,
     },
     duration: {
         type: DataTypes.STRING,
         allowNull: false,
     },
     season: {
-        type: DataTypes.ENUM('String', 'Summer', 'Autumn', 'Winter'),
+        type: DataTypes.ENUM('Spring', 'Summer', 'Autumn', 'Winter'),
         allowNull: false,
       },
 

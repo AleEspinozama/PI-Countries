@@ -1,12 +1,15 @@
 const { DataTypes } = require('sequelize');
 // Exportamos una funcion que define el modelo
 // Luego le injectamos la conexion a sequelize.
+
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('country', {
     ID: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
+      primaryKey: true,
     },
     name: {
       type: DataTypes.STRING,
@@ -17,7 +20,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     continent: {
-      type: DataTypes.ENUM('Africa', 'Americas', 'Asia', 'Europe', 'Oceania'),
+      type: DataTypes.ENUM('Africa', 'Americas', 'Asia', 'Europe', 'Oceania', 'Antarctic'),
       allowNull: false,
     },
     capital: {
@@ -29,15 +32,12 @@ module.exports = (sequelize) => {
     },
     area: {
       type: DataTypes.INTEGER,
-      set(value) {
-        this.setDataValue('area', new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(value) + 'km²');
-      },
     },
     population: {
       type: DataTypes.INTEGER,
-      set(value) {
-        this.setDataValue('area', new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(value));
-      },
+      // set(value) {
+      //   this.setDataValue('area', new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 }).format(value));
+      // },
     },
 
   });
