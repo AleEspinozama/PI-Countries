@@ -25,8 +25,8 @@ const axios = require('axios');
 const { Country } = require('./src/db.js');
 
 let DataCountries = async () => {
-    const countries = await axios.get(`https://restcountries.com/v3.1/all`)
-    .then(countries => {
+    try{
+        const countries = await axios.get(`https://restcountries.com/v3.1/all`)
         countries.data.map( async c => {
             try {
                 var countryCreated = await Country.findOrCreate({
@@ -48,14 +48,18 @@ let DataCountries = async () => {
             catch(err){
                 console.log(err)  
             }
-        });
-    })
-    .catch(error => console.error('Error:', error));
+        }
+        );
+        console.log("Countries loaded in database")
+    }
+    catch(error) {
+          console.error('Error:', error);
+    }
 }
 
 DataCountries();
 // Syncing all the models at once.
-conn.sync({ force: false }).then(() => {
+conn.sync({ force: true}).then(() => {
   server.listen(3002, () => {
     console.log('%s listening at 3002'); // eslint-disable-line no-console
 

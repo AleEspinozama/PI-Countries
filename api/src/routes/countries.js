@@ -2,14 +2,13 @@ const router = require('express').Router();
 const { Country, Activity } = require('../db.js');
 const { conn } = require('../db.js');
 
-
-// [ ] GET /countries:
-// Obtener un listado de los paises.
-//countries
+// Obtener un listado de los paises o los que coincidan con un nombre en particular
 router.get('/', (req, res) => {
     const { name } = req.query;
-    Country.findAll().then((countries) => {
-        console.log(countries);
+    
+    Country.findAll( {
+        include: Activity 
+    }).then((countries) => {
         //Si no tiene query, manda todos
         if(!name) res.status(200).json(countries);
         //Si tiene query, hace un nuevo array y le pushea los que coincidan
@@ -20,7 +19,8 @@ router.get('/', (req, res) => {
                     newArray.push(country); // %mex%
                 }
             }
-            return res.status(200).json(newArray)
+            if(newArray.length>0) return res.status(200).json(newArray)
+            else return res.status(200).json("No matches found")
         }
   }).catch((err)=>{
         res.json({data: err})
