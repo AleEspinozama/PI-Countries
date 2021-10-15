@@ -1,0 +1,14 @@
+.formulario {
+    border: 2px inset var(--principal);
+    padding: 30px;
+    width: 80%;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h1{
+    text-shadow: 2px 2px var(--second);
+}

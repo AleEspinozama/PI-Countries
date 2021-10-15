@@ -1,11 +1,65 @@
+:root{
+  --principalDark:#16F5DF;
+  --principal: #00A897;
+  --secondDark:#FF7230;
+  --second: #F55D16;
+  --colorFonts:#A83A07;
+  --white: rgb(226, 226, 226);
+  --black: #000;
+
+
+  --font: 'Poppins', sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*, *:before, *:after{
+  box-sizing: inherit;
+}
+
 body {
+  background-color: var(--black);
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font);
+  font-size: 14px;
+  color: var(--white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+input {
+  background-color: transparent;
+  color: var(--principal);
+  border: 1px solid var(--principal);
+  border-radius: 5px;
+  margin: 20px;
+  padding: 5px;
+}
+
+::placeholder{
+  color:var(--white);
+}
+
+select {
+  background-color: transparent;
+  color: var(--second);
+  border: 1px solid var(--second);
+  border-radius: 5px;
+  margin: 10px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+select option {
+  margin: 40px;
+  background: rgba(0, 0, 0, 0.74);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+  
+}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

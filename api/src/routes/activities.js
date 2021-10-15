@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { Activity, Country } = require("../db.js");
-const { Sequelize } = require("sequelize");
 
 //get: trae todas las actividades o una en particular
 router.get('/', (req, res) => {
@@ -44,7 +43,7 @@ try {
     })
     console.log(ActivityCreated);
     await ActivityCreated.addCountries(countries);
-    if(created) res.status(200).send("Activity created");
+    if(created) res.status(200).send(ActivityCreated);
     else res.status(200).send("Activity already on database");
 }
 catch(err){

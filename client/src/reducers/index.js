@@ -10,7 +10,9 @@ import {
 
 const initialState = {
     countries : [],
-    country : []
+    activities: [],
+    country : [], 
+
 }
 
 function reducer (state = initialState, { type, payload}) {
@@ -35,6 +37,12 @@ function reducer (state = initialState, { type, payload}) {
             return {
                 ...state,
                 countries: payload
+            }
+
+        case CREATE_ACTIVITY:
+            return {
+                ...state,
+                // activities: activities.push(payload)
             }
         
         default:

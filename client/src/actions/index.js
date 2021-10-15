@@ -7,18 +7,19 @@ import {
     ORDER_BY_POPULATION,
     ORDER_ALPHABETICALLY 
 } from "./types";
+const axios = require('axios');
+
 
 
 //trae todos los países o filtra por nombre
 export function getAll(name){
     return async (dispatch) => {
-        const response;
-        if (name) response =await fetch(`http://localhost:3002/countries?name=${name}`);
-        else response = await fetch(`http://localhost:3002/countries`);
-        const data = await response.json();
+        var response;
+        if (name) response =await axios(`http://localhost:3002/countries?name=${name}`);
+        else response = await axios(`http://localhost:3002/countries`);
         dispatch({
             type: GET_ALL,
-            payload: data
+            payload: response.data
         });
     }
 }

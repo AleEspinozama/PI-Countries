@@ -1,0 +1,48 @@
+.container{
+    background-color: var(--black);
+    height:100%;
+    width:100%;
+    position: absolute; 
+    top: 0; 
+    left: 0;
+}
+
+
+.landing {
+    background-image:url('https://media1.giphy.com/media/l0MYPsBLOYyFqSDte/giphy.gif?cid=ecf05e472i91emhjzkga1d3nno9n75sdfxyccqn54e1d85j3&rid=giphy.gif');
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-position: center;
+    height:100%;
+    width:100%;
+    position: absolute; 
+    top: 0; 
+    left: 0;
+}
+
+.boton {
+    text-decoration: none;
+    color:var(--principalDark);
+    background-color: transparent;
+    border-radius: 5px;
+    padding:5px;
+    border:2px solid var(--principalDark);
+    cursor: pointer;
+   
+    transition: all .2s ease-in-out;
+
+}
+.boton:hover{
+    background-color: var(--principal);
+    color:var(--black);
+    transform: scale(1.1); 
+    border-color: var(--principal);
+}
+
+.start {
+    position:absolute;
+    padding: 20px;
+    bottom: 50px;
+    right: 150px;
+}

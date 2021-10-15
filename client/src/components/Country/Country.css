@@ -1,0 +1,46 @@
+.containerA{
+    border: 5px solid;
+    border-radius: 5px;
+    margin: 2rem;
+    padding: 1rem;
+    background-color: rgba(201, 201, 201, 0.288);
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.containerA:hover{
+    transform: scale(1.1); 
+}
+
+.Antarctic{
+    color:yellow;
+}
+
+.Americas{
+    color:red;
+}
+
+.Europe{
+    color:green; 
+}
+
+.Asia{
+    color:cyan;
+}
+
+.Africa{
+    color:purple;
+}
+
+.Oceania{
+    color:orangered;
+}
+
+.flag {
+    width:20rem;
+    height: 14rem;
+}
+
+.name{
+    color:var(--white)
+}
