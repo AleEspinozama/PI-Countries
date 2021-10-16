@@ -1,10 +1,22 @@
-import React from 'react'
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { filterContinent } from "../../actions/index.js";
+
 
 function Filters() {
+
+    const [continent, setContinent] = useState ("");
+    const dispatch= useDispatch();
+
+
     return (
         <div>
         {/* Selector de continente */}
-         <select name="continent" id="continent">
+         <select 
+         name="continent" 
+         id="continent"
+         onChange={(e) => dispatch(filterContinent(e.target.value))}
+         >
             <option value="none" selected disabled hidden>
                 Continent
             </option>

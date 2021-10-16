@@ -27,11 +27,10 @@ export function getAll(name){
 //trae un país en específico
 export function getbyID(id) {
     return async (dispatch) => {
-        const response = await fetch(`http://localhost:3002/countries/${id}`);
-        const data = await response.json();
+        const response = await axios(`http://localhost:3002/countries/${id}`);
         dispatch({
             type: GET_BYID,
-            payload: data
+            payload: response.data
         });
     }
 }
@@ -39,12 +38,11 @@ export function getbyID(id) {
 //filtra por continente
 export function filterContinent(continent) {
     return async (dispatch) => {
-        const response = await fetch(`http://localhost:3002/countries`);
-        const data = await response.json();
-        data = data.filter(e => e.continent.toLowerCase() === continent.toLowerCase());
+        var response = await axios(`http://localhost:3002/countries`);
+        response = response.data.filter(e => e.continent.toLowerCase() === continent.toLowerCase());
         dispatch({
             type: FILTER_CONTINENT,
-            payload: data
+            payload: response
         });
     }
 }
@@ -52,13 +50,12 @@ export function filterContinent(continent) {
 //filtra por actividad
 export function filterActivity(activity) {
     return async (dispatch) => {
-        const response = await fetch(`http://localhost:3002/activity/name=${activity}`);
-        const data = await response.json();
+        const response = await axios(`http://localhost:3002/activity/name=${activity}`);
         //data = data.filter(e => e.Activities.filter(a => a.name === activity).length);
         
         dispatch({
             type: FILTER_ACTIVITY,
-            payload: data
+            payload: response
         });
     }
 }

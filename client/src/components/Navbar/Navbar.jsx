@@ -5,11 +5,14 @@ import './Navbar.css';
 
 function Navbar() {
     return (
+        <div className="containerNav">
         <header className="navbar">
                <Link to="/" className= "botonLogo">Hello, World</Link>
-               <Link to="/Activity" className= "boton">Add Activity</Link>
                <Search />
+               <Link to="/Activity" className= "boton">Add Activity</Link>
+
         </header>
+        </div>
     )
 }
 

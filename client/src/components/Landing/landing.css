@@ -40,6 +40,13 @@
     border-color: var(--principal);
 }
 
+.act{
+    background-color: var(--principal);
+    color:var(--black); 
+    border-color: var(--principal);
+}
+
+
 .start {
     position:absolute;
     padding: 20px;
