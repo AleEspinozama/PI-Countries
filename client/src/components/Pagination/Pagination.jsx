@@ -1,3 +1,4 @@
+import './Pagination.css'
 
 function Pagination({perPage, total, paginate, prevPag, nextPag, current}) {
     const pageNum= [];
@@ -6,12 +7,13 @@ function Pagination({perPage, total, paginate, prevPag, nextPag, current}) {
     }
 
     return (
-        <div>
+        <div >
+                <div className="pages">
                 {current> 1 ?
                 <button className="boton" 
                     onClick={()=> prevPag()}
                     >Prev
-                </button>: <h1></h1>
+                </button>: ""
                 }
                 {pageNum.map(n=> {
                         return <button key={n} 
@@ -23,8 +25,9 @@ function Pagination({perPage, total, paginate, prevPag, nextPag, current}) {
                  <button className="boton"
                  onClick={()=> nextPag()}
                  >Next
-                </button> : <h1></h1>
+                </button> : ""
                 }
+                </div>
                 
         </div>
     )

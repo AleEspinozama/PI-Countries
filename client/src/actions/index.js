@@ -4,8 +4,8 @@ import {
     CREATE_ACTIVITY,
     FILTER_CONTINENT,
     FILTER_ACTIVITY,
-    ORDER_BY_POPULATION,
-    ORDER_ALPHABETICALLY 
+    ORDER_BY,
+    SET_PAGE
 } from "./types";
 const axios = require('axios');
 
@@ -47,15 +47,15 @@ export function filterContinent(continent) {
     }
 }
 
-//filtra por actividad
+//trae la lista de actividades o filtra por actividad
 export function filterActivity(activity) {
     return async (dispatch) => {
-        const response = await axios(`http://localhost:3002/activity/name=${activity}`);
-        //data = data.filter(e => e.Activities.filter(a => a.name === activity).length);
-        
+        var response;
+        if(activity) response = await axios(`http://localhost:3002/activity/name=${activity}`);
+        else  response = await axios(`http://localhost:3002/activity`);       
         dispatch({
             type: FILTER_ACTIVITY,
-            payload: response
+            payload: response.data
         });
     }
 }
@@ -63,18 +63,25 @@ export function filterActivity(activity) {
 //crea actividad
 export function createActivity (activity){
     return async (dispatch) => {
-        const response = await fetch(`http://localhost:3002/activity`, {
-            method: 'POST', // *GET, POST, PUT, DELETE, etc.
-            headers: {'Content-Type': 'application/json'},
-         //   redirect: 'follow', // manual, *follow, error
-            body: JSON.stringify(activity)
-        });
-        const data = await response.json();
-
+       const response= await axios.post(`http://localhost:3002/activity`, activity);
         dispatch({
             type: CREATE_ACTIVITY,
-            payload: data
+            payload: response.data
 
         })
     }
+}
+//setea el número de página
+export function setPage(n){
+    return({
+        type: SET_PAGE,
+        payload: n
+    })
+}
+
+export function orderBy(order){
+    return({
+        type:ORDER_BY,
+        payload: order
+    })
 }

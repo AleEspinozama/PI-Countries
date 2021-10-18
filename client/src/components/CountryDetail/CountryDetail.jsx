@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { getbyID } from '../../actions/index';
 import { Link } from 'react-router-dom';
+import './CountryDetail.css';
 
 function CountryDetail() {
     const { id:code } =useParams();
@@ -15,7 +16,7 @@ function CountryDetail() {
 
     return (
         <div className="formulario">
-            <Link to="/home">Back </Link>
+            <Link to="/home" className="boton right">x</Link>
             <h1>{country.name}</h1>
             <div className="grid">
                 <img src={country.image} alt={"flag img"} />
@@ -24,8 +25,8 @@ function CountryDetail() {
                     <p>Continent: {country.continent}</p>
                     <p>Capital: {country.capital}</p>
                     <p>Subregion: {country.subregion}</p>
-                    <p>Area: { parseFloat(country.area).toFixed(3).toLocaleString()} km²</p>
-                    <p>Population: {country.population} hab</p>
+                    <p>Area: { Number(country.area).toLocaleString()} km²</p>
+                    <p>Population: {Number(country.population).toLocaleString()} hab</p>
                 </div>
             </div>
 

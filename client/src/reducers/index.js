@@ -4,18 +4,18 @@ import {
     CREATE_ACTIVITY,
     FILTER_CONTINENT,
     FILTER_ACTIVITY,
-    ORDER_BY_POPULATION,
-    ORDER_ALPHABETICALLY 
+    ORDER_BY,
+    SET_PAGE
 } from "../actions/types";
 
 const initialState = {
     countries : [],
     activities: [],
     country : [], 
-
+    page:1
 }
 
-function reducer (state = initialState, { type, payload}) {
+function reducer (state = initialState, { type, payload }) {
     switch(type) {
         case GET_ALL:
             return {
@@ -44,6 +44,39 @@ function reducer (state = initialState, { type, payload}) {
                 ...state,
                 // activities: activities.push(payload)
             }
+
+        case SET_PAGE:
+            return {
+                ...state,
+                page: payload
+            }
+
+        case ORDER_BY:
+            if(payload === 'AZ') {
+            return {
+                ...state,
+                countries: state.countries.slice().sort((a, b) => (a.name > b.name) ? 1 : -1),
+              };
+            }
+            if(payload === 'ZA') {
+                return {
+                    ...state,
+                    countries: state.countries.slice().sort((a, b) => (a.name < b.name) ? 1 : -1),
+                  };
+                }
+            if(payload === 'Population-+') {
+                return {
+                    ...state,
+                    countries: state.countries.slice().sort((a, b) => (a.population > b.population) ? 1 : -1),
+                };
+            }
+            if(payload === 'Population+-') {
+                return {
+                    ...state,
+                    countries: state.countries.slice().sort((a, b) => (a.population < b.population) ? 1 : -1),
+                };
+            }
+            break;
         
         default:
             return state;

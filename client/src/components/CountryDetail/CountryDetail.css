@@ -1,0 +1,7 @@
+.right{
+    border: 1px solid var(--principal);
+    float: right;
+    margin-top: -3rem;
+    margin-right: -3rem;
+    padding: 0 0.5rem;
+}

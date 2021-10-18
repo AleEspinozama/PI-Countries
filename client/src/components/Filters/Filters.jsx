@@ -1,23 +1,23 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { filterContinent } from "../../actions/index.js";
+import { filterContinent, setPage, orderBy } from "../../actions/index.js";
 
 
 function Filters() {
-
-    const [continent, setContinent] = useState ("");
     const dispatch= useDispatch();
-
-
+    
     return (
         <div>
         {/* Selector de continente */}
          <select 
          name="continent" 
          id="continent"
-         onChange={(e) => dispatch(filterContinent(e.target.value))}
-         >
-            <option value="none" selected disabled hidden>
+         defaultValue="none"
+         onChange={(e) => {
+             dispatch(filterContinent(e.target.value))
+             dispatch(setPage(1));
+         }}>
+            <option value="none"  disabled hidden>
                 Continent
             </option>
             <option value='Africa'>Africa</option>
@@ -28,9 +28,9 @@ function Filters() {
             <option value='Antarctic'>Antarctic</option>
         </select>
 
-                {/* Selector de continente */}
-        <select name="activity" id="activity">
-            <option value="none" selected disabled hidden>
+        {/* Selector de actividad */}
+        <select name="activity" id="activity"  defaultValue="none">
+            <option value="none"  disabled hidden>
                 Activity
             </option>
         </select>
@@ -38,14 +38,21 @@ function Filters() {
 
 
         {/* Selector de orden */}
-        <select name="alphabeticalOrder" id="alphabeticalOrder">
-            <option value="none" selected disabled hidden>
+        <select 
+        name="Order" 
+        id="Order"
+        defaultValue="none"
+        onChange={(e) => {
+            dispatch(orderBy(e.target.value))
+            dispatch(setPage(1));
+        }}>
+            <option value="none" disabled hidden>
                     Order
             </option>
             <option value='AZ'>A-Z</option>
             <option value='ZA'>Z-A</option>
-            <option value='LowerPopuation'>Population +-</option>
-            <option value='HigherPopulation'>Population -+</option>
+            <option value='Population+-'>Population +-</option>
+            <option value='Population-+'>Population -+</option>
         </select>
 
 

@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getAll } from "../../actions/index.js";
+import { getAll, setPage } from "../../actions/index.js";
 import { useHistory } from 'react-router-dom';
+
 import './Search.css';
 
 
@@ -18,7 +19,8 @@ function Search() {
                 e.preventDefault();
                 dispatch(getAll(country));
                 setCountry("");
-                history.push("/home");
+                dispatch(setPage(1));
+                history.push("/home?name=" + country);
 
             }}>
                 <input 

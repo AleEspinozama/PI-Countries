@@ -1,5 +1,6 @@
-import {useState, useEffect} from 'react'
-import { useSelector } from 'react-redux';
+import { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux';
+import { setPage } from "../../actions/index.js";
 import Country  from '../Country/Country';
 import { Link } from 'react-router-dom';
 import Pagination from '../Pagination/Pagination';
@@ -9,9 +10,11 @@ import './Countries.css'
 export function Countries() {
   var resultado= true;
   const countries = useSelector(state => state.countries);
+  const currentPage= useSelector(state=> state.page);
+
+  const dispatch= useDispatch();
 
  // const [loading, setLoading] = useState(false);
-  const [currentPage, setCurrentPage] =useState(1);
   const [postsPerPage] = useState (9);
 
   //current countries
@@ -19,9 +22,9 @@ export function Countries() {
   const indexFirst= indexLast-postsPerPage;
   const current= countries.slice(indexFirst, indexLast);
 
-  const paginate = (n) => setCurrentPage(n);
-  const prevPag = () =>setCurrentPage(currentPage-1);
-  const nextPag = () => setCurrentPage(currentPage+1);
+  const paginate = (n) => dispatch(setPage(n));
+  const prevPag = () =>dispatch(setPage(currentPage-1));
+  const nextPag = () => dispatch(setPage(currentPage+1));
 
 
   if (typeof countries === 'string') resultado= false;
@@ -39,7 +42,7 @@ export function Countries() {
             </div>
               {
                 resultado ? <Pagination perPage={postsPerPage} total={countries.length} paginate={paginate} prevPag={prevPag} nextPag= {nextPag} current={currentPage}/> 
-                : <h1></h1>
+                : ""
               }
         </div>                                        
     )
