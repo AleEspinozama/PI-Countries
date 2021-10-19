@@ -1,13 +1,16 @@
+.containerF{
+    display: flex;
+    justify-content: center;
+
+}
 .formulario {
     border: 2px inset var(--principal);
     background-color: rgba(0, 0, 0, 0.603);
     padding: 30px;
     width: 80%;
     border-radius: 10px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin-top: 6rem;
+
 }
 
 h1{

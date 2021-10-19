@@ -1,0 +1,31 @@
+[
+    {
+        "name": "Dance",
+        "dificulty": 2,
+        "duration": "One night",
+        "season": "All",
+        "countries": ["MEX", "ARG"]
+    },
+    {
+        "name": "Skydiving",
+        "dificulty": 4,
+        "duration": "11 day",
+        "season": "Summer",
+        "countries": ["COL", "CAN", "AFG"]
+    },
+    {
+        "name": "Bull riding",
+        "dificulty": 5,
+        "duration": "10 min",
+        "season": "Autumn",
+        "countries": ["MEX", "ESP"]
+    },
+    {
+        "name": "Bird watch",
+        "dificulty": 1,
+        "duration": "1 day",
+        "season": "Spring",
+        "countries": ["MEX", "ARG", "TJK", "VEN"]
+    }
+
+]

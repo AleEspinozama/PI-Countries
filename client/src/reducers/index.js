@@ -1,11 +1,11 @@
 import {
     GET_ALL,
     GET_BYID,
-    CREATE_ACTIVITY,
     FILTER_CONTINENT,
     FILTER_ACTIVITY,
     ORDER_BY,
-    SET_PAGE
+    SET_PAGE,
+    GET_ACTIVITIES
 } from "../actions/types";
 
 const initialState = {
@@ -38,11 +38,11 @@ function reducer (state = initialState, { type, payload }) {
                 ...state,
                 countries: payload
             }
-
-        case CREATE_ACTIVITY:
+            
+        case GET_ACTIVITIES:
             return {
                 ...state,
-                // activities: activities.push(payload)
+                activities: payload
             }
 
         case SET_PAGE:

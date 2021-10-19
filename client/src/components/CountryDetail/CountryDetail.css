@@ -5,3 +5,12 @@
     margin-right: -3rem;
     padding: 0 0.5rem;
 }
+
+.actcard{
+    border: 2px dotted var(--principal);
+    border-radius: 10px;
+}
+
+.activityname{
+    color:var(--second)
+}

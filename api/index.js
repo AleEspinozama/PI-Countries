@@ -24,6 +24,8 @@ const axios = require('axios');
 //const Country = require('./src/models/Country.js');
 const { Country } = require('./src/db.js');
 
+//****traer las Countries de la API */
+
 let DataCountries = async () => {
     try{
         const countries = await axios.get(`https://restcountries.com/v3.1/all`)
@@ -35,9 +37,9 @@ let DataCountries = async () => {
                         name: c.name.common,
                         image: c.flags.png,
                         continent: c.region,               
-                        capital: c.capital ? c.capital[0] : 'No have Capital',
-                        continent: c.region ? c.region : 'No have Region',
-                        subregion: c.subregion ? c.subregion : 'No have SubRegion',
+                        capital: c.capital ? c.capital[0] : '',
+                        continent: c.region ? c.region : '',
+                        subregion: c.subregion ? c.subregion : '',
                         area: parseInt(c.area) ? parseInt(c.area) : 0,
                         population: parseInt(c.population)     
                         }
@@ -58,8 +60,9 @@ let DataCountries = async () => {
 }
 
 DataCountries();
+
 // Syncing all the models at once.
-conn.sync({ force: true}).then(() => {
+conn.sync({ force: false}).then(() => {
   server.listen(3002, () => {
     console.log('%s listening at 3002'); // eslint-disable-line no-console
 

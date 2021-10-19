@@ -41,7 +41,6 @@ try {
             season
         },
     })
-    console.log(ActivityCreated);
     await ActivityCreated.addCountries(countries);
     if(created) res.status(200).send(ActivityCreated);
     else res.status(200).send("Activity already on database");

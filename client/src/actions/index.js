@@ -1,13 +1,13 @@
 import {
     GET_ALL,
     GET_BYID,
-    CREATE_ACTIVITY,
     FILTER_CONTINENT,
     FILTER_ACTIVITY,
+    GET_ACTIVITIES,
     ORDER_BY,
     SET_PAGE
 } from "./types";
-const axios = require('axios');
+import axios from 'axios';
 
 
 
@@ -48,27 +48,24 @@ export function filterContinent(continent) {
 }
 
 //trae la lista de actividades o filtra por actividad
-export function filterActivity(activity) {
+export function getActivities() {
     return async (dispatch) => {
-        var response;
-        if(activity) response = await axios(`http://localhost:3002/activity/name=${activity}`);
-        else  response = await axios(`http://localhost:3002/activity`);       
+        var response = await axios(`http://localhost:3002/activity`);       
         dispatch({
-            type: FILTER_ACTIVITY,
+            type: GET_ACTIVITIES,
             payload: response.data
         });
     }
 }
 
-//crea actividad
-export function createActivity (activity){
+export function filterActivity(activity) {
     return async (dispatch) => {
-       const response= await axios.post(`http://localhost:3002/activity`, activity);
+        var response = await axios(`http://localhost:3002/activity?name=${activity}`);    
+        console.log(response);
         dispatch({
-            type: CREATE_ACTIVITY,
-            payload: response.data
-
-        })
+            type: FILTER_ACTIVITY,
+            payload: response.data[0].countries
+        });
     }
 }
 //setea el número de página
