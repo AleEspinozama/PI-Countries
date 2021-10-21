@@ -42,7 +42,7 @@ try {
         },
     })
     await ActivityCreated.addCountries(countries);
-    if(created) res.status(200).send(ActivityCreated);
+    if(created) res.status(200).send("Activity created");
     else res.status(200).send("Activity already on database");
 }
 catch(err){
