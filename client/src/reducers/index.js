@@ -5,14 +5,16 @@ import {
     FILTER_ACTIVITY,
     ORDER_BY,
     SET_PAGE,
-    GET_ACTIVITIES
+    GET_ACTIVITIES,
+    SHOW_LOADER
 } from "../actions/types";
 
 const initialState = {
     countries : [],
     activities: [],
     country : [], 
-    page:1
+    page:1,
+    loading: false
 }
 
 function reducer (state = initialState, { type, payload }) {
@@ -20,12 +22,14 @@ function reducer (state = initialState, { type, payload }) {
         case GET_ALL:
             return {
                 ...state,
-                countries: payload
+                countries: payload,
+                loading: false
             }
         case GET_BYID:
             return {
                 ...state,
-                country: payload
+                country: payload,
+                loading: false
             }
         case FILTER_CONTINENT:
             return {
@@ -49,6 +53,11 @@ function reducer (state = initialState, { type, payload }) {
             return {
                 ...state,
                 page: payload
+            }
+        case SHOW_LOADER:
+            return {
+                ...state,
+                loading: true
             }
 
         case ORDER_BY:

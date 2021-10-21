@@ -11,6 +11,7 @@ function Filters() {
     return (
         <div>
         {/* Selector de continente */}
+        <label> Search by:</label>
          <select 
          name="continent" 
          id="continent"
@@ -31,6 +32,10 @@ function Filters() {
         </select>
 
         {/* Selector de actividad */}
+        <label> or:</label>
+        {
+
+        activities.length>0 ? 
         <select 
         name="activity" 
         id="activity"  
@@ -48,9 +53,10 @@ function Filters() {
                             <option value={c.name} key={c.id}>{c.name}</option>
                     ))
             } 
-        </select>
-
+        </select> : ""
+        }
         {/* Selector de orden */}
+        <label> Order by:</label>
         <select 
         name="Order" 
         id="Order"

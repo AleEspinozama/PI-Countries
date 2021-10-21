@@ -5,7 +5,8 @@ import {
     FILTER_ACTIVITY,
     GET_ACTIVITIES,
     ORDER_BY,
-    SET_PAGE
+    SET_PAGE,
+    SHOW_LOADER
 } from "./types";
 import axios from 'axios';
 
@@ -61,7 +62,6 @@ export function getActivities() {
 export function filterActivity(activity) {
     return async (dispatch) => {
         var response = await axios(`http://localhost:3002/activity?name=${activity}`);    
-        console.log(response);
         dispatch({
             type: FILTER_ACTIVITY,
             payload: response.data[0].countries
@@ -81,4 +81,11 @@ export function orderBy(order){
         type:ORDER_BY,
         payload: order
     })
+}
+
+export function showLoader() {
+    return({
+        type:SHOW_LOADER,
+    })
+
 }

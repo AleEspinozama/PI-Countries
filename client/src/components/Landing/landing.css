@@ -10,6 +10,7 @@
 
 .landing {
     background-image:url('https://media1.giphy.com/media/l0MYPsBLOYyFqSDte/giphy.gif?cid=ecf05e472i91emhjzkga1d3nno9n75sdfxyccqn54e1d85j3&rid=giphy.gif');
+    /* background-image:url(../../img/world.gif); */
     background-size:contain;
     background-repeat:no-repeat;
     background-attachment:fixed;

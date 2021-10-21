@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { setPage } from "../../actions/index.js";
 import Country  from '../Country/Country';
+import Loader from '../Loader/Loader.jsx';
 import { Link } from 'react-router-dom';
 import Pagination from '../Pagination/Pagination';
 import './Countries.css'
@@ -12,12 +13,13 @@ export function Countries() {
   const countries = useSelector(state => state.countries);
   const currentPage= useSelector(state=> state.page);
 
+  const loading=useSelector(state=>state.loading);
+
   const dispatch= useDispatch();
 
- // const [loading, setLoading] = useState(false);
   const [postsPerPage] = useState (9);
 
-  //current countries
+  //paginado
   const indexLast=currentPage* postsPerPage;
   const indexFirst= indexLast-postsPerPage;
   const current= countries.slice(indexFirst, indexLast);
@@ -30,6 +32,8 @@ export function Countries() {
   if (typeof countries === 'string') resultado= false;
     return (
         <div>
+          { loading ? <Loader />:
+          <div>
             <div className= "grid">
                 {
                 resultado ? current.map(c => (
@@ -44,6 +48,8 @@ export function Countries() {
                 resultado ? <Pagination perPage={postsPerPage} total={countries.length} paginate={paginate} prevPag={prevPag} nextPag= {nextPag} current={currentPage}/> 
                 : ""
               }
+            </div>
+            }
         </div>                                        
     )
 }

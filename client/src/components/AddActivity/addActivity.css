@@ -16,3 +16,9 @@
 h1{
     text-shadow: 2px 2px var(--second);
 }
+
+.danger {
+    color:yellow;
+    font-size: 1rem;
+     border: 1px dotted yellow; 
+}

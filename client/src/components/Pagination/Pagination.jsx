@@ -1,7 +1,9 @@
 import './Pagination.css'
 
 function Pagination({perPage, total, paginate, prevPag, nextPag, current}) {
+    
     const pageNum= [];
+
     for(let i=1; i<=Math.ceil(total/perPage); i++){
         pageNum.push(i);
     }

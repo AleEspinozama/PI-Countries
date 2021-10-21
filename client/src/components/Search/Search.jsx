@@ -17,7 +17,7 @@ function Search() {
         <div>
             <form onSubmit= {(e) => {
                 e.preventDefault();
-                dispatch(getAll(country));
+                country !== ""? dispatch(getAll(country)) : alert("Enter a search")
                 setCountry("");
                 dispatch(setPage(1));
                 history.push("/home?name=" + country);
@@ -27,6 +27,7 @@ function Search() {
                 type="text" 
                 placeholder="Country" 
                 name="Country"
+                value={country}
                 onChange={e =>  {
                     setCountry(e.target.value)
                   }

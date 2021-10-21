@@ -6,3 +6,4 @@ export const FILTER_ACTIVITY= "FILTER_ACTIVITY";
 export const GET_ACTIVITIES = "GET_ACTIVITIES";
 export const ORDER_BY= "ORDER_BY"
 export const SET_PAGE = "SET_PAGE";
+export const SHOW_LOADER= "SHOW_LOADER"
