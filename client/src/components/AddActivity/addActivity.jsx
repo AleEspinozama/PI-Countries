@@ -15,6 +15,7 @@ function AddActivity() {
 //traer la lista de countries y ordenarlas alfabéticamente
     const countries = useSelector(state => state.countries);
     const activities = useSelector(state=> state.activities);
+    //const { country } =useSelector(state => state);
 
     useEffect(() => {
        setTimeout(()=> dispatch(orderBy("AZ")), 250);
