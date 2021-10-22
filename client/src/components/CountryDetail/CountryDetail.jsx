@@ -20,7 +20,7 @@ function CountryDetail() {
     // console.log(country);
 
     useEffect(()=>{ 
-        setTimeout(()=> dispatch(getbyID(id)), 150);
+        setTimeout(()=> dispatch(getbyID(id)), 10);
         dispatch(showLoader());
         // dispatch(getbyID(id));
  

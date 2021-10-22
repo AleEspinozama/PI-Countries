@@ -39,7 +39,7 @@ router.get('/:idPais', (req, res) => {
         include: Activity 
     })
     .then(country => res.status(200).json(country))
-    .catch(err =>res.status(400).send("Country not found "+ err) )
+    .catch(err =>res.status(400).send(err) )
 })
 
 

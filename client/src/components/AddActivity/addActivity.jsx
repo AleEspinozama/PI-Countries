@@ -1,6 +1,6 @@
 import { Link,  useHistory } from 'react-router-dom';
 import { useEffect, useState } from "react";
-import { orderBy } from "../../actions/index.js";
+import { orderBy, getAll } from "../../actions/index.js";
 import { useDispatch, useSelector } from "react-redux";
 
 import axios from 'axios';
@@ -18,8 +18,9 @@ function AddActivity() {
     //const { country } =useSelector(state => state);
 
     useEffect(() => {
+        if(countries.length===0) dispatch(getAll());
        setTimeout(()=> dispatch(orderBy("AZ")), 250);
-    }, [dispatch]);
+    }, [dispatch, countries.length]);
 
 
 //estado inicial de la actividad
@@ -125,7 +126,7 @@ function validate(InputActivity) {
     return (
         
             <div className="containerF">
-                <form className="formulario" onSubmit={(e) => handleOnSubmit(e)}>   
+                <form className="formularioF" onSubmit={(e) => handleOnSubmit(e)}>   
                 <Link to="/home" className="boton right">x</Link>
                 <h1>Add Activity</h1>
 

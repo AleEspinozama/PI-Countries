@@ -29,6 +29,7 @@ function Filters() {
             <option key="Europe" value='Europe'>Europe</option>
             <option key="Oceania" value='Oceania'>Oceania</option>
             <option key="Antartic" value='Antarctic'>Antarctic</option>
+            <option key="All" value="">All</option>
         </select>
 
         {/* Selector de actividad */}
