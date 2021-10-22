@@ -17,7 +17,7 @@ function AddActivity() {
     const activities = useSelector(state=> state.activities);
 
     useEffect(() => {
-       setTimeout(()=> dispatch(orderBy("AZ")), 150);
+       setTimeout(()=> dispatch(orderBy("AZ")), 250);
     }, [dispatch]);
 
 

@@ -12,6 +12,7 @@ function Navbar() {
         <div className="containerNav">
         <header className="navbar">
                <Link to="/" className= "botonLogo">Hello, World</Link>
+               {/* <Link to="/home" className= "botonLogo">Home</Link> */}
                <Search />
                <Link to="/Activity" className= "boton" onClick= {(e) => {
                    dispatch(getAll())

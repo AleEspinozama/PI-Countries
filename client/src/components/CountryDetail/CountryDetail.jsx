@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getbyID, showLoader } from '../../actions/index';
 import { Link } from 'react-router-dom';
 import Loader from '../Loader/Loader';
-import img404 from "../../img/404.gif"
+import Notfound from '../Notfound/Notfound';
+
 import './CountryDetail.css';
 
 function CountryDetail() {
@@ -61,11 +62,7 @@ function CountryDetail() {
                     </div>  
                 </div>
                 }
-            </div> :<div className="Formulario">
-                                <h1>Country not found</h1>
-                                <img src={img404} alt ="404image"/>
-                                <Link to="/" className="boton">Go back</Link>
-                    </div>
+            </div> : <Notfound/>
             }
     </div>
     )

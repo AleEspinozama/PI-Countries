@@ -14,3 +14,7 @@
 .activityname{
     color:var(--second)
 }
+
+.back{
+    background-color: rgba(0, 0, 0, 0.795);
+}
