@@ -38,7 +38,7 @@ function CountryDetail() {
                         <img src={country.image} alt={"flag img"} />
                         <div>
                             <p>ID: {country.ID}</p>
-                            <p>Continent: {country.continent}</p>
+                            <p className={`${country.continent}`} >Continent: {country.continent}</p>
                             <p>Capital: {country.capital}</p>
                             <p>Subregion: {country.subregion}</p>
                             <p>Area: { Number(country.area).toLocaleString()} km²</p>

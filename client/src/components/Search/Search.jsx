@@ -17,13 +17,15 @@ function Search() {
         <div>
             <form onSubmit= {(e) => {
                 e.preventDefault();
-                country !== ""? dispatch(getAll(country)) : alert("Enter a search")
+                country !== ""? dispatch(getAll(country)) : alert("Please, enter a search")
                 setCountry("");
                 dispatch(setPage(1));
+                
+                //comment for test ->
                 history.push("/home?name=" + country);
 
             }}>
-                <input 
+                <input
                 type="text" 
                 placeholder="Country" 
                 name="Country"
@@ -33,7 +35,10 @@ function Search() {
                   }
                    }
                 />
-                <button className= "boton" >Search</button>
+                <button 
+                className= "boton" 
+                data-testid= "boton-test"
+                >Search</button>
             </form>
         </div>
     )
