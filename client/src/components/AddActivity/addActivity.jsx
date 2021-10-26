@@ -86,7 +86,6 @@ function validate(InputActivity) {
     function handleOnChangeCountry(){
         var options = document.getElementById('Country').selectedOptions;
         var valuesSelected = Array.from(options).map(({value}) => value);
-        console.log(valuesSelected)
 
         setInputActivity({
             ...InputActivity,
