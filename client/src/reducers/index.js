@@ -61,7 +61,7 @@ function reducer (state = initialState, { type, payload }) {
                 loading: true
             }
 
-         case CLEAN_COUNTRY:
+        case CLEAN_COUNTRY:
             return {
                 ...state,
                 country:[], 

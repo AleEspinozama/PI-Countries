@@ -3,18 +3,19 @@ const { Country, Activity } = require('../db.js');
 const { conn } = require('../db.js');
 
 // Obtener un listado de los paises o los que coincidan con un nombre en particular
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     const { name } = req.query;
     
-    Country.findAll( {
+    try {
+    var Countries= await Country.findAll( {
         include: Activity 
-    }).then((countries) => {
+    })
         //Si no tiene query, manda todos
-        if(!name) res.status(200).json(countries);
+        if(!name) res.status(200).json(Countries);
         //Si tiene query, hace un nuevo array y le pushea los que coincidan
         else {
             var newArray= [];
-            for(let country of countries){
+            for(let country of Countries){
                 if(country.dataValues.name.toLowerCase().includes(name.toLowerCase())){
                     newArray.push(country); // %mex%
                 }
@@ -22,10 +23,12 @@ router.get('/', (req, res) => {
             if(newArray.length>0) return res.status(200).json(newArray)
             else return res.status(200).json("No matches found")
         }
-  }).catch((err)=>{
+    }
+    catch (err) {
         res.json({data: err})
+    }     
   })
-})
+
 
 
 // [ ] GET /countries/{idPais}:
