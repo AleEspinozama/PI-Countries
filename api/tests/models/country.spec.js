@@ -7,62 +7,47 @@ describe('Country model', () => {
       console.error('Unable to connect to the database:', err);
     }));
 
-  //   describe('Validators', () => {
-  //     beforeEach(() => Types.sync({ force: true }));
-  //     describe('Creating types:', () => {
-  //         it('Should create a type: ', done => {
-  //           Types.create({
-  //               id: 1,
-  //               en: 'Just a type',
-  //               es: 'Un tipo'
-  //             })
-  //             .then(type => {
-  //                 expect(type.en).to.equal('Just a type')
-  //                 done()
-  //             })
-  //             .catch(() => done())
-  //         });
-  //         it('Should NOT create a type without id: ', done => {
-  //             Types.create({
-  //                 en: 'Should not create this'
-  //             })
-  //               .then(() => done("It shouldn't be created"))
-  //               .catch(() => done());
-  //         })
-  //     })
-  //   });
-  // });
-  describe('Validators', () => {
-    beforeEach(() => Country.sync({ force: true }));
-    describe('name', () => {
-      it('should throw an error if name is null', (done) => {
-        Country.create({})
-          .then(() => done(new Error('It requires a valid name')))
-          .catch(() => done());
-      });
-      it('should work when its a valid name', () => {
-        Country.create({ name: 'Argentina' });
-      });
-    });
-    describe('image', () => {
-      it('should throw an error if image is null', (done) => {
-        Country.create({})
-          .then(() => done(new Error('It requires a valid image')))
-          .catch(() => done());
-      });
-      it('should work when its a valid image', () => {
-        Country.create({ image: "https://flagcdn.com/w320/mx.png" });
-      });
-    });
-    describe('ID', () => {
-      it('should throw an error if ID is null', (done) => {
-        Country.create({})
-          .then(() => done(new Error('It requires a valid ID')))
-          .catch(() => done());
-      });
-      it('should work when its a valid ID', () => {
-        Country.create({  ID: "MEX" });
-      });
+    describe('Validators', () => {
+      beforeEach(() => Country.sync({ force: true }));
+      describe('Creating country:', () => {
+          it('Should create a country: ', done => {
+            Country.create({
+                  ID: "MEX",
+                  name: 'Mexico',
+                  image: "https://flagcdn.com/w320/mx.png",
+                  continent: "Americas",
+                  capital: "Mexico City",
+                  subregion: "North America",
+              })
+              .then(country => {
+                  expect(country.name).to.equal('Mexico')
+                  expect(country.ID).to.equal('MEX')
+                  done()
+              })
+              .catch(() => done("It shouldn't be created"))
+          });
+          it('Should NOT create a country without id, image, continent, capital: ', done => {
+              Country.create({
+                  name: 'Mexico'
+              })
+                .then(() => done("It shouldn't be created"))
+                .catch(() => done());
+          })
+
+          it('Should NOT create a country with incorrect continent: ', done => {
+            Country.create({
+                  ID: "MEX",
+                  name: 'Mexico',
+                  image: "https://flagcdn.com/w320/mx.png",
+                  continent: "Ameriwasa",
+                  capital: "Mexico City",
+                  subregion: "North America",
+            })
+              .then(() => done("It shouldn't be created"))
+              .catch(() => done());
+        })
+      })
     });
   });
-});
+
+

@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { filterContinent, setPage, orderBy, filterActivity } from "../../actions/index.js";
 
 
 function Filters() {
     const dispatch= useDispatch();
+    let history= useHistory();
 
     const[filters, setFilters] = useState(
         {
@@ -24,6 +26,7 @@ function Filters() {
             [e.target.name]:e.target.value,
         }) 
         dispatch(setPage(1));
+        history.push("/home");
     }
     
     return (

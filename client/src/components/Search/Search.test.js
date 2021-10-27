@@ -34,10 +34,11 @@ describe("Input value", () => {
 })
 
 describe("Search button", ()=> {
-        it("trigger dispatch function", () => {
+        it("trigger dispatch function and clears input value", () => {
             const {queryByPlaceholderText, getByTestId} = renderWithRedux(<Search/>);
             const searchInput = queryByPlaceholderText("Country");
             fireEvent.change(searchInput, {target: {value:"test"}});
             fireEvent.click(getByTestId("boton-test"));
+            expect(searchInput.value).toBe("")
         })
 })

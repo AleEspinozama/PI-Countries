@@ -22,7 +22,7 @@ function Search() {
                 dispatch(setPage(1));
                 
                 //comment for test ->
-                history.push("/home?name=" + country);
+                 history.push("/home?name=" + country);
 
             }}>
                 <input
