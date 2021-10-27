@@ -1,12 +1,30 @@
-
+import { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { filterContinent, setPage, orderBy, filterActivity } from "../../actions/index.js";
 
 
 function Filters() {
     const dispatch= useDispatch();
+
+    const[filters, setFilters] = useState(
+        {
+            continent:"none",
+            activity:"none",
+            order:"none"
+        }
+    )
     
     const activities = useSelector(state => state.activities);
+
+    function handlerOnChange (e){
+        setFilters({
+            continent:"none",
+            activity:"none",
+            order:"none",
+            [e.target.name]:e.target.value,
+        }) 
+        dispatch(setPage(1));
+    }
     
     return (
         <div>
@@ -15,10 +33,10 @@ function Filters() {
          <select 
          name="continent" 
          id="continent"
-         defaultValue="none"
+         value={filters.continent}
          onChange={(e) => {
-             dispatch(filterContinent(e.target.value))
-             dispatch(setPage(1));
+             dispatch(filterContinent(e.target.value));
+             handlerOnChange(e)
          }}>
             <option key= "a" value="none"  disabled hidden>
                 Continent
@@ -41,10 +59,10 @@ function Filters() {
         <select 
         name="activity" 
         id="activity"  
-        defaultValue="none"
+        value={filters.activity}
         onChange={(e) => {
             dispatch(filterActivity(e.target.value))
-            dispatch(setPage(1));
+            handlerOnChange(e)
         }}
         >
             <option value="none"  disabled hidden>
@@ -62,10 +80,15 @@ function Filters() {
         <select 
         name="Order" 
         id="Order"
-        defaultValue="none"
+        value={filters.order}
         onChange={(e) => {
             dispatch(orderBy(e.target.value))
             dispatch(setPage(1));
+            setFilters({
+                ...filters,
+                order:e.target.value,
+            }) 
+
         }}>
             <option key="none" value="none" disabled hidden>
                     Order

@@ -8,7 +8,7 @@ function Notfound() {
                                 <img src={img404} alt ="404image"/>
                                 <br/>
                                 <br/>
-                                <Link to="/" className="boton back">Go back</Link>
+                                <Link to="/home/" className="boton back">Go back</Link>
                     </div>
     )
 }

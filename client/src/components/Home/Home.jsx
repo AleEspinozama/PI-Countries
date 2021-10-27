@@ -4,7 +4,7 @@ import Filters from '../Filters/Filters';
 
 
 import { useEffect } from "react";
-import { getActivities, getAll } from "../../actions/index.js";
+import { getActivities, getAll, getbyID } from "../../actions/index.js";
 import { useDispatch, useSelector } from "react-redux";
 
 
@@ -16,6 +16,7 @@ function Home() {
     useEffect(() => {
         if(countries.length === 0) dispatch(getAll());
         dispatch(getActivities());
+        dispatch(getbyID("MEX"));
     }, [dispatch, countries.length]);
 
     return (
