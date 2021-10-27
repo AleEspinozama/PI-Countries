@@ -6,7 +6,8 @@ import {
     ORDER_BY,
     SET_PAGE,
     GET_ACTIVITIES,
-    SHOW_LOADER
+    SHOW_LOADER,
+    CLEAN_COUNTRY
 } from "../actions/types";
 
 const initialState = {
@@ -59,6 +60,12 @@ function reducer (state = initialState, { type, payload }) {
                 ...state,
                 loading: true
             }
+
+         case CLEAN_COUNTRY:
+            return {
+                ...state,
+                country:[], 
+            }       
 
         case ORDER_BY:
             if(payload === 'AZ') {

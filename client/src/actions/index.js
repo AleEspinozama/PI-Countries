@@ -6,7 +6,8 @@ import {
     GET_ACTIVITIES,
     ORDER_BY,
     SET_PAGE,
-    SHOW_LOADER
+    SHOW_LOADER,
+    CLEAN_COUNTRY
 } from "./types";
 import axios from 'axios';
 
@@ -48,7 +49,7 @@ export function filterContinent(continent) {
     }
 }
 
-//trae la lista de actividades o filtra por actividad
+//trae la lista de actividades
 export function getActivities() {
     return async (dispatch) => {
         var response = await axios(`http://localhost:3002/activity`);       
@@ -59,6 +60,7 @@ export function getActivities() {
     }
 }
 
+//filtra por actividad
 export function filterActivity(activity) {
     return async (dispatch) => {
         var response = await axios(`http://localhost:3002/activity?name=${activity}`);    
@@ -87,5 +89,10 @@ export function showLoader() {
     return({
         type:SHOW_LOADER,
     })
+}
 
+export function cleanCountry() {
+    return({
+        type:CLEAN_COUNTRY,
+    })
 }

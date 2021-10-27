@@ -38,9 +38,8 @@ let DataCountries = async () => {
                         image: c.flags.png,
                         continent: c.region,               
                         capital: c.capital ? c.capital[0] : '',
-                        continent: c.region ? c.region : '',
                         subregion: c.subregion ? c.subregion : '',
-                        area: parseInt(c.area) ? parseInt(c.area) : 0,
+                        area: parseInt(c.area), 
                         population: parseInt(c.population)     
                         }
                 })
