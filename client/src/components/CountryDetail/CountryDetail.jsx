@@ -9,23 +9,21 @@ import Notfound from '../Notfound/Notfound';
 import './CountryDetail.css';
 
 function CountryDetail() {
+
+    const dispatch = useDispatch();
     const { id:code } =useParams();
     let [id] =useState(code);
-    const dispatch = useDispatch();
 
     const country = useSelector(state => state.country);
     const loading = useSelector(state => state.loading);
 
-    // console.log(loading);
-    // console.log(country);
 
     useEffect(()=>{ 
         setTimeout(()=> dispatch(getbyID(id)), 50);
         dispatch(showLoader());
-        // dispatch(getbyID(id));
- 
-    }, 
-        [dispatch, id]);
+    }, [dispatch, id]);
+
+
     return (
       <div>
           {country ? 
