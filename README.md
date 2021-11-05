@@ -5,7 +5,7 @@
 # Individual Project - Henry Countries
 
 <p align="left">
-  <img height="200" src="./countries.png" />
+   <img src="https://raw.githubusercontent.com/AleEspinozama/AleEspinozama/main/CountryApp.JPG" alt="landing page"/>
 </p>
 
 ## Objetivos del Proyecto
@@ -34,11 +34,11 @@
   </hr>
   Landing page:
   <br>
-  <img src="./CountryApp.jpg" alt="landing page"/>
+  <img src="https://raw.githubusercontent.com/AleEspinozama/AleEspinozama/main/CountryApp.JPG" alt="landing page"/>
   Home page:
   <br>
- <img src="./home.jpg" alt="home page"/>
+ <img src="https://raw.githubusercontent.com/AleEspinozama/AleEspinozama/main/home.JPG" alt="home page"/>
   Form page (to add activity):
   <br>
-  <img src="./form.jpg" alt="form page"/>
+  <img src="https://raw.githubusercontent.com/AleEspinozama/AleEspinozama/main/form.JPG" alt="form page"/>
 </div>
