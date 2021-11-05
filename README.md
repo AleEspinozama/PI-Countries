@@ -32,9 +32,6 @@
   </h4>
   <br>
   </hr>
-  Landing page:
-  <br>
-  <img src="https://raw.githubusercontent.com/AleEspinozama/AleEspinozama/main/CountryApp.JPG" alt="landing page"/>
   Home page:
   <br>
  <img src="https://raw.githubusercontent.com/AleEspinozama/AleEspinozama/main/home.JPG" alt="home page"/>
