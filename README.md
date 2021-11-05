@@ -34,11 +34,11 @@
   </hr>
   Landing page:
   <br>
-  <a href="https://github.com/FedeFleitas/Oh-My-Dog"><img src="./CountryApp.jpg" alt="oh my dog! Full-stack project"/></a>
+  <img src="./CountryApp.jpg" alt="landing page"/>
   Home page:
   <br>
-  <a href="https://github.com/FedeFleitas/Oh-My-Dog"><img src="./home.jpg" alt="oh my dog! Full-stack project"/></a>
+ <img src="./home.jpg" alt="home page"/>
   Form page (to add activity):
   <br>
-  <a href="https://github.com/FedeFleitas/Oh-My-Dog"><img src="./form.jpg" alt="oh my dog! Full-stack project"/></a>
+  <img src="./form.jpg" alt="form page"/>
 </div>
